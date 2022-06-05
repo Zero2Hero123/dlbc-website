@@ -1,13 +1,10 @@
 <?php
 
-    $events = array(
-        array("title"=>"Sunday Worship Service","date"=>date("w"))
-    );
-
     function getWeekSchedule(){
 
         $sundayService;
         $tuesdayBibleStudy;
+        $revivalHour;
 
         $timeCheck = time();        
              

@@ -41,25 +41,26 @@ content="width=device-width,initial-scale=1">
 
           <?php 
 
+            $eventStatus;
             foreach($schedule as $event)
 
-              $eventStatus = "Upcoming";
+              // $eventStatus = "Upcoming";
 
-              if(date('d',$event['time']) === date('d')){
-                $eventStatus = "Happening Today";
-              }
+              // // if(date('d',$event['time']) === date('d')){
+              // //   $eventStatus = "Happening Today";
+              // // }
 
-              echo('<div class="shadow">' . $eventStatus .
+              echo('<div class="shadow">' .
               '<h3 class="event_date">' . date(' M d ',$event['time']) . '</h2>
               <p class="event_desc lead">' . $event['title'] . '</p>
               </div>');
 
           ?>
 
-          <div class='shadow' >
+          <!-- <div class='shadow' >
             <h3 class="event_date"><?php echo date("M d") ?></h2>
             <p class="event_desc lead">Sunday Service</p>
-          </div>
+          </div> -->
         </section>
 
       </main>
