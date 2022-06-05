@@ -1,0 +1,37 @@
+/* .featured {
+  min-height: 400px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+} */
+
+:root {
+  --border-color: black;
+}
+
+.weekly {
+  display: flex;
+
+  /* background: gray; */
+  height: 150px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.weekly div {
+  width: 150px;
+  border-radius: 10px;
+  background-color: white;
+
+  transition: all 0.3s ease 0s;
+}
+
+.weekly div:hover {
+  transform: translateY(-5px);
+}
+
+.weekly div h3 {
+  font-weight: bold;
+  padding: 5px 0 0 5px;
+}
