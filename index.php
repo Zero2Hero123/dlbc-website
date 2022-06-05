@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 
-<?php include './utils/events.php' ?>
+<?php include './utils/events_util.php' ?>
 
 <html>
   <head>
     <title><?php echo "DLBC Baltimore | Home" ?></title>
 
     <meta charset="utf-8">
-    <meta name="viewport" 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-
-content="width=device-width,initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <link href="./assets/styles/nav.css" rel='stylesheet'>
-    <link href="./assets/styles/footer.css" rel='stylesheet'>
-    
-    <link href='./assets/styles/main.css' rel='stylesheet'>
-    <link href='./assets/styles/home.css' rel='stylesheet'>
+    <?php include './assets/templates/global_links.html' ?>
     
 </head>
 
@@ -28,32 +19,31 @@ content="width=device-width,initial-scale=1">
 
     <div class='web-grid'>
 
-      <main> 
-      
-        <?php 
-          $schedule = getWeekSchedule(); 
-          foreach($schedule as $e){
-            echo $e['title'] . date(' M d ',$e['time']) . ' | ';
-          }
-        ?>
+      <main>
 
         <section class="weekly">
 
+        
           <?php 
+            $schedule = getWeekSchedule(); 
 
-            $eventStatus;
             foreach($schedule as $event)
 
-              // $eventStatus = "Upcoming";
-
-              // // if(date('d',$event['time']) === date('d')){
-              // //   $eventStatus = "Happening Today";
-              // // }
-
-              echo('<div class="shadow">' .
-              '<h3 class="event_date">' . date(' M d ',$event['time']) . '</h2>
-              <p class="event_desc lead">' . $event['title'] . '</p>
-              </div>');
+              // if(date('d',$event['time']) == date('d')){
+              //   $status = "Happening Today";
+              // }
+              
+              if(date('d',$event['time']) == date('d')){
+                echo('<div class="shadow">' . '<p class="event_status" >Happening Today</p>' .
+                '<h3 class="event_date">' . date(' M d ',$event['time']) . '</h3>
+                <p class="event_desc lead">' . $event['title'] . '</p>
+                </div>');
+              } else {
+                echo('<div class="shadow">' . '<p class="event_status" >Upcoming</p>' .
+                '<h3 class="event_date">' . date(' M d ',$event['time']) . '</h3>
+                <p class="event_desc lead">' . $event['title'] . '</p>
+                </div>');
+              }
 
           ?>
 
